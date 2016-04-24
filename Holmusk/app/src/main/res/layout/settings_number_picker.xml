@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/settingsWidget"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:clickable="true"
+              android:paddingTop="@dimen/widget_padding"
+              android:paddingBottom="@dimen/widget_padding"
+              android:layout_marginBottom="@dimen/widget_margin_bottom"
+              android:background="@drawable/border_bottom"
+              android:weightSum="5">
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="4">
+
+        <TextView
+            android:id="@+id/inputLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/labelColor"
+            android:textSize="20sp"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/inputSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secondary Text"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/inputValue"
+        android:layout_weight="1"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:gravity="right"
+        android:textSize="18sp"/>
+
+</LinearLayout>
+
