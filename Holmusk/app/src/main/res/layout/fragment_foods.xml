@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="org.smcnus.irace_android.Activities.Statistics.RecordStatisticsActivity">
+
+    <TextView
+        android:id="@+id/numFoodsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ECEFF1"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="17sp"
+        android:textColor="#666"
+        android:text="@string/num_foods"/>
+
+    <LinearLayout
+        android:id="@+id/foodsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical" />
+
+</RelativeLayout>
