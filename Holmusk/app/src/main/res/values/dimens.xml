@@ -2,4 +2,38 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="calorie_progress_bar_width">200dp</dimen>
+    <dimen name="calorie_progress_bar_height">200dp</dimen>
+    <dimen name="check_more_width">200dp</dimen>
+    <dimen name="check_more_padding_top_bot">10dp</dimen>
+    <dimen name="check_more_padding_left_right">15dp</dimen>
+
+    <!--Settings widget-->
+    <dimen name="widget_padding">10dp</dimen>
+    <dimen name="widget_margin_bottom">0dp</dimen>
+
+    <dimen name="table_column_small_padding">3dp</dimen>
+    <dimen name="table_column_padding">5dp</dimen>
+
+    <dimen name="table_border_width">2dp</dimen>
+    <dimen name="stats_label_font_size">15sp</dimen>
+    <dimen name="stats_value_font_size">20sp</dimen>
+    <dimen name="stats_label_font_size_1">16sp</dimen>
+    <dimen name="stats_value_font_size_1">22sp</dimen>
+
+    <dimen name="card_horizontal_padding">10dp</dimen>
+    <dimen name="card_vertical_padding">6dp</dimen>
+    <dimen name="card_title">22sp</dimen>
+
+    <dimen name="calorie_pb_width">320dp</dimen>
+    <dimen name="calorie_pb_height">40dp</dimen>
+
+    <dimen name="table_border_small_width">1dp</dimen>
+
+    <dimen name="food_name_font">25sp</dimen>
+    <dimen name="food_pict_width">100dp</dimen>
+    <dimen name="food_pict_height">75dp</dimen>
+    <dimen name="calories_font_size">60sp</dimen>
+    <dimen name="calories_unit_font_size">25sp</dimen>
+
 </resources>

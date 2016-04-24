@@ -1,3 +1,67 @@
 <resources>
-    <string name="app_name">HolmuskChallenge</string>
+    <string name="app_name">Holmusk Daily</string>
+    <string name="action_person">Person</string>
+    <string name="action_search">Search For Food</string>
+    <string name="check_more_text">Check your daily activity</string>
+
+    <string name="personal_information">Personal Information</string>
+
+    <string name="protein">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrate">Carb</string>
+
+    <string name="protein_unit">g</string>
+    <string name="fat_unit">g</string>
+    <string name="carbohydrate_unit">g</string>
+    <string name="kcal_unit">kCal</string>
+
+    <string name="summary_tab_title">Summary</string>
+    <string name="food_tab_title">Food</string>
+
+    <string-array name="number_picker_label">
+        <item>Age</item>
+        <item>Weight</item>
+        <item>Height</item>
+    </string-array>
+
+    <string-array name="number_picker_secondary_text">
+        <item>Please enter your age (in years)</item>
+        <item>Please enter your weight (in Kg)</item>
+        <item>Please enter your height (in cm)</item>
+    </string-array>
+
+    <string-array name="spinner_label">
+        <item>Gender</item>
+    </string-array>
+
+    <string-array name="spinner_secondary_text">
+        <item>Please specify your gender</item>
+    </string-array>
+
+    <string-array name="polluted_waves">
+        <item>#394948</item>
+        <item>#5a7874</item>
+        <item>#43abae</item>
+    </string-array>
+
+    <string-array name="medical_express">
+        <item>#a3a3a3</item>
+        <item>#bbbbbb</item>
+        <item>#dddddd</item>
+    </string-array>
+
+    <string name="expand_here">Click here for more details</string>
+    <string name="shrink_here">Click here for brief details</string>
+
+    <string name="nutrient">Nutrient</string>
+    <string name="cholesterol">Cholesterol</string>
+    <string name="sugar">Sugar</string>
+    <string name="dietary_fibre">Fibre</string>
+    <string name="potassium">Potassium</string>
+    <string name="sodium">Sodium</string>
+
+    <string name="weekly_calories">Weekly Calories</string>
+
+    <string name="num_foods" formatted="false">Number of meals: %d</string>
+
 </resources>

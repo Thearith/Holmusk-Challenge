@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#2c3e50</color>
+    <color name="colorPrimaryDark">#3d566e</color>
+    <color name="colorAccent">#1abc9c</color>
+    <color name="successButton">#1abc9c</color>
+
+    <color name="labelColor">#DD000000</color>
+    <color name="secondaryTextColor">#89000000</color>
+    <color name="borderBottomColor">#1E000000</color>
+    <color name="barColor">#a2b0b1</color>
+
+    <color name="tableBorderColor">#E6E6E6</color>
+
+    <color name="progressBarBgColor">#cccccc</color>
+    <color name="progressBarStartColor">#499092</color>
+
+    <color name="settings_tabs">#2c3e50</color>
+    <color name="accent">#40C4FF</color>
+    <color name="calorie_pb_primary">#1abc9c</color>
+    <color name="calorie_pb_secondary">#801abc9c</color>
+    <color name="calorie_pb_bg">#E9EAEC</color>
+    <color name="calorie_pb_text">#FFFFFF</color>
+
+    <color name="protein_color">#C9573C</color>
+    <color name="fat_color">#72B3C9</color>
+    <color name="carb_color">#D2AB46</color>
+
+    <color name="alizarin">#e74c3c</color>
+
+    <color name="stats_label_color">#89000000</color>
+    <color name="stats_value_color">#3498db</color>
+    <color name="stats_unit_color">#f39c12</color>
+
+    <color name="card_title">#989898</color>
+    <color name="food_calories">#c0392b</color>
+    <color name="food_calories_unit">#f39c12</color>
+
+
 </resources>
