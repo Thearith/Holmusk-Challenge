@@ -238,9 +238,9 @@ public class DateIntakeProgress extends Fragment {
     }
 
     private void populateNutrientIntakeWidgets() {
-        proteinIntakeTextView.setText(String.valueOf(nutrient.getProtein()));
-        fatIntakeTextView.setText(String.valueOf(nutrient.getTotalFats()));
-        carbIntakeTextView.setText(String.valueOf(nutrient.getTotalCarbs()));
+        proteinIntakeTextView.setText(String.format("%1.2f", nutrient.getProtein()));
+        fatIntakeTextView.setText(String.format("%1.2f", nutrient.getTotalFats()));
+        carbIntakeTextView.setText(String.format("%1.2f", nutrient.getTotalCarbs()));
     }
 
 }

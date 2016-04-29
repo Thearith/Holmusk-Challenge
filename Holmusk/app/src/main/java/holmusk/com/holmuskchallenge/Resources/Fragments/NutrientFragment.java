@@ -172,10 +172,10 @@ public class NutrientFragment extends Fragment implements View.OnClickListener {
     }
 
     private void populateExpandDetails() {
-        cholesterolTextView.setText(String.valueOf(nutrient.getCholesterol()));
-        sugarTextView.setText(String.valueOf(nutrient.getSugar()));
-        fibreTextView.setText(String.valueOf(nutrient.getDietaryFibre()));
-        sodiumTextView.setText(String.valueOf(nutrient.getSodium()));
-        potassiumTextView.setText(String.valueOf(nutrient.getPotassium()));
+        cholesterolTextView.setText(String.format("%1.2f", nutrient.getCholesterol()));
+        sugarTextView.setText(String.format("%1.2f", nutrient.getSugar()));
+        fibreTextView.setText(String.format("%1.2f", nutrient.getDietaryFibre()));
+        sodiumTextView.setText(String.format("%1.2f", nutrient.getSodium()));
+        potassiumTextView.setText(String.format("%1.2f", nutrient.getPotassium()));
     }
 }
