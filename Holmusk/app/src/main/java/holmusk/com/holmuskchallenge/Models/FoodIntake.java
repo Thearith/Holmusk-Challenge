@@ -24,11 +24,17 @@ public class FoodIntake extends RealmObject {
         return this.date;
     }
 
-    public void addFood(String food) {
-        if(foods == null || foods == "")
-            foods = food;
+    public void addFood(String foodId) {
+        if(foods == null || foods.equalsIgnoreCase("") )
+            foods = foodId;
         else
-            foods = SEPERATOR + food;
+            foods += SEPERATOR + foodId;
+    }
+
+    public void removeFood(String foodId) {
+        if(foods != null && !foods.equalsIgnoreCase("") ) {
+            foods.replace(foodId, "");
+        }
     }
 
     public String[] getAllFoods() {
