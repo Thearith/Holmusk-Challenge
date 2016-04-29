@@ -6,10 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 
+import holmusk.com.holmuskchallenge.Helpers.CalorieCalculator;
 import holmusk.com.holmuskchallenge.Helpers.DateTime;
+import holmusk.com.holmuskchallenge.Models.Food;
+import holmusk.com.holmuskchallenge.Models.FoodIntake;
 import holmusk.com.holmuskchallenge.Models.Nutrient;
 import holmusk.com.holmuskchallenge.Models.Settings;
 import holmusk.com.holmuskchallenge.R;
@@ -22,7 +26,7 @@ import holmusk.com.holmuskchallenge.Storage.SharedPreferences.SettingsPreference
  * Created by thearith on 25/4/16.
  */
 
-public class SummaryFragment extends Fragment {
+public class SummaryTabFragment extends Fragment {
 
     private DatabaseWrapper wrapper;
     private SettingsPreferences settingsPref;
@@ -89,11 +93,16 @@ public class SummaryFragment extends Fragment {
     }
 
     private void initializeNutrients() {
-        //TODO: calculate today's nutrients from database
+        ArrayList<Food> foods = wrapper.getFoods();
+        nutrient = CalorieCalculator.getNutrient(foods);
     }
 
     private void initializeWeeklyCalories() {
-        //TODO: calculate weekly calories from database
+        weeklyDates = DateTime.getWeeklyDatesLabels();
+
+        long[] weekDates = DateTime.getWeeklyDates();
+        ArrayList<ArrayList<Food>> foodsList = wrapper.getWeeklyFoods(weekDates);
+        weeklyCalories = CalorieCalculator.getWeeklyCalories(foodsList);
     }
 
 
@@ -108,18 +117,17 @@ public class SummaryFragment extends Fragment {
 
     private void setUpDateIntakeProgress() {
         Fragment fragment = DateIntakeProgress.newInstance(date, settings, nutrient);
-        addFragmentToFragmentManager(fragment);
+        addFragmentToFragmentManager(R.id.intakeProgressContainer, fragment);
     }
 
     private void setUpWeeklyCalories() {
         String chartTitle = getActivity().getResources().getString(R.string.weekly_calories);
         Fragment fragment = LineChartFragment.newInstance(chartTitle, weeklyDates, weeklyCalories);
-        addFragmentToFragmentManager(fragment);
+        addFragmentToFragmentManager(R.id.weeklyCaloriesContainer, fragment);
     }
 
-    private void addFragmentToFragmentManager(Fragment fragment) {
-        getChildFragmentManager().beginTransaction()
-                .add(R.id.summaryContainer, fragment).commit();
+    private void addFragmentToFragmentManager(int containerId, Fragment fragment) {
+        getChildFragmentManager().beginTransaction().add(containerId, fragment).commit();
     }
 
 }
