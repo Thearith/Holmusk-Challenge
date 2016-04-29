@@ -36,5 +36,16 @@
     <color name="food_calories">#c0392b</color>
     <color name="food_calories_unit">#f39c12</color>
 
+    <array name="loading_colors">
+        <item>@color/blue_btn_bg_color</item>
+        <item>@color/material_deep_teal_50</item>
+        <item>@color/success_stroke_color</item>
+        <item>@color/material_deep_teal_20</item>
+        <item>@color/material_blue_grey_80</item>
+        <item>@color/warning_stroke_color</item>
+        <item>@color/success_stroke_color</item>
+    </array>
+
+    <color name="gray_background">#eeeeee</color>
 
 </resources>

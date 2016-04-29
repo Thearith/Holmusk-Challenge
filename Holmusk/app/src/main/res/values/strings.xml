@@ -2,6 +2,8 @@
     <string name="app_name">Holmusk Daily</string>
     <string name="action_person">Person</string>
     <string name="action_search">Search For Food</string>
+    <string name="daily_activity">Daily Progress</string>
+    <string name="action_setting">Settings</string>
     <string name="check_more_text">Check your daily activity</string>
 
     <string name="personal_information">Personal Information</string>
@@ -63,5 +65,11 @@
     <string name="weekly_calories">Weekly Calories</string>
 
     <string name="num_foods" formatted="false">Number of meals: %d</string>
+
+    <string name="search_hint">Search for foods</string>
+    <string name="title_activity_search">SearchActivity</string>
+
+    <string name="no_internet_dialog_title">No Internet Connection</string>
+    <string name="no_internet_dialog_description">Search is not functional without internet connection.</string>
 
 </resources>

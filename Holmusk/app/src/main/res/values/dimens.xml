@@ -33,7 +33,13 @@
     <dimen name="food_name_font">25sp</dimen>
     <dimen name="food_pict_width">100dp</dimen>
     <dimen name="food_pict_height">75dp</dimen>
-    <dimen name="calories_font_size">60sp</dimen>
-    <dimen name="calories_unit_font_size">25sp</dimen>
+    <dimen name="calories_font_size">40sp</dimen>
+    <dimen name="calories_unit_font_size">15sp</dimen>
+
+    <dimen name="line_chart_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="add_food_width">20dp</dimen>
+    <dimen name="add_food_height">20dp</dimen>
 
 </resources>
