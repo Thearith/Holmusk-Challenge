@@ -79,6 +79,7 @@
             android:id="@+id/calorieProgressBar"
             android:layout_width="@dimen/calorie_progress_bar_width"
             android:layout_height="@dimen/calorie_progress_bar_height"
+            android:clickable="false"
             app:apsv_rounded="true"
             app:apsv_shadowed="true"
             app:apsv_animated="true"
