@@ -4,17 +4,19 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
 
-    <item android:id="@+id/search"
+    <item android:id="@+id/action_search"
           android:title="@string/action_search"
           android:icon="@drawable/ic_search"
-          app:showAsAction="always"
-          android:actionViewClass="android.widget.SearchView" />
+          app:showAsAction="collapseActionView|ifRoom"
+          android:actionViewClass="android.support.v7.widget.SearchView"
+          app:actionViewClass="android.support.v7.widget.SearchView"
+        />
 
     <item
-        android:title="@string/action_person"
+        android:title="@string/action_setting"
         android:id="@+id/action_setting"
         android:icon="@drawable/ic_settings"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         />
 
 </menu>
