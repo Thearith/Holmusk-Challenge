@@ -6,12 +6,12 @@
 
     <LinearLayout
         android:id="@+id/clickToExpand"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="10dp"
         android:clickable="true"
-        android:gravity="center_vertical"
+        android:gravity="center_vertical|right"
         android:orientation="horizontal">
 
         <TextView
@@ -341,10 +341,10 @@
 
         <LinearLayout
             android:id="@+id/clickToShrink"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
