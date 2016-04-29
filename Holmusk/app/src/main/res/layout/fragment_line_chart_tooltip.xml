@@ -13,7 +13,18 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:textSize="16sp"
-        android:textColor="#ffffff">
+        android:textSize="15sp"
+        android:text="16"
+        android:textColor="@android:color/white">
     </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kcal_unit"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_toRightOf="@id/value"
+        android:layout_marginLeft="1dp"/>
 </RelativeLayout>

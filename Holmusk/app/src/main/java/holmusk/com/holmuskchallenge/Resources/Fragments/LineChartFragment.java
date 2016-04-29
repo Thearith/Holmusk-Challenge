@@ -141,12 +141,12 @@ public class LineChartFragment extends Fragment {
 
         lineChart.setTooltips(mTip);
 
-        LineSet tappingDurationDataSet = new LineSet(chartLabels, chartValues);
-        tappingDurationDataSet.setColor(Color.parseColor("#b3b5bb"))
-                .setFill(Color.parseColor("#2d374c"))
+        LineSet dataSet = new LineSet(chartLabels, chartValues);
+        dataSet.setColor(Color.parseColor("#b3b5bb"))
+                .setFill(Color.TRANSPARENT)
                 .setDotsColor(Color.parseColor("#ffc755"))
                 .setThickness(4);
-        lineChart.addData(tappingDurationDataSet);
+        lineChart.addData(dataSet);
 
         lineChart.setBorderSpacing(Tools.fromDpToPx(15))
                 .setYLabels(AxisController.LabelPosition.NONE)
