@@ -16,8 +16,11 @@ import java.util.ArrayList;
 import holmusk.com.holmuskchallenge.Activities.DailyActivity.DailyActivity;
 import holmusk.com.holmuskchallenge.Helpers.CalorieCalculator;
 import holmusk.com.holmuskchallenge.Helpers.DateTime;
+import holmusk.com.holmuskchallenge.Models.Food;
+import holmusk.com.holmuskchallenge.Models.Nutrient;
 import holmusk.com.holmuskchallenge.Models.Settings;
 import holmusk.com.holmuskchallenge.R;
+import holmusk.com.holmuskchallenge.Storage.Databases.DatabaseWrapper;
 import holmusk.com.holmuskchallenge.Storage.SharedPreferences.SettingsPreferences;
 
 /**
@@ -28,10 +31,12 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
     public static final String TITLE    = "main_fragment";
 
+    private DatabaseWrapper wrapper;
     private SettingsPreferences settingsPref;
 
     private Settings settings;
-    private double totalCalorie;
+    private double suggestedCalories;
+    private Nutrient todayNutrients;
 
     private TextView dateTextView;
     private TextView totalCalorieTextView;
@@ -81,16 +86,40 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     * */
 
     private void initializeStorage() {
+        initializeDatabase();
         initializeSharedPreferences();
+    }
+
+    private void initializeDatabase() {
+        wrapper = DatabaseWrapper.getInstance(getActivity());
     }
 
     private void initializeSharedPreferences() {
         settingsPref = SettingsPreferences.getInstance(getActivity());
     }
 
+
+    /*
+    * variable methods
+    * */
+
     private void initializeVariables() {
+        initializeSettings();
+        initializeTodayNutrients();
+        initializeSuggestCalories();
+    }
+
+    private void initializeSettings() {
         settings = settingsPref.getSettings();
-        totalCalorie = CalorieCalculator.calculateCalorieInput(settings);
+    }
+
+    private void initializeTodayNutrients() {
+        ArrayList<Food> foods = wrapper.getFoods();
+        todayNutrients = CalorieCalculator.getNutrient(foods);
+    }
+
+    private void initializeSuggestCalories() {
+        suggestedCalories = CalorieCalculator.calculateCalorieInput(settings);
     }
 
 
@@ -107,6 +136,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         initializeDateTextView(view);
         initializeTotalCalorieTextView(view);
         initializeProgressBar(view);
+        initializeNutrientIntakeWidgets(view);
         initializeCheckMoreButton(view);
     }
 
@@ -120,6 +150,14 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
     private void initializeProgressBar(View view) {
         calorieProgressBar = (ArcProgressStackView) view.findViewById(R.id.calorieProgressBar);
+        calorieProgressBar.setEnabled(false);
+        calorieProgressBar.setOnClickListener(null);
+    }
+
+    private void initializeNutrientIntakeWidgets(View view) {
+        proteinIntakeTextView = (TextView) view.findViewById(R.id.proteinIntakeTextView);
+        fatIntakeTextView = (TextView) view.findViewById(R.id.fatIntakeTextView);
+        carbIntakeTextView = (TextView) view.findViewById(R.id.carbIntakeTextView);
     }
 
     private void initializeCheckMoreButton(View view) {
@@ -131,6 +169,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         populateDateTextView();
         populateTotalCalorieTextView();
         populateCalorieProgressBar();
+        populateNutrientIntakeWidgets();
     }
 
     private void populateDateTextView() {
@@ -139,18 +178,26 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     }
 
     private void populateTotalCalorieTextView() {
-        totalCalorieTextView.setText(String.valueOf(totalCalorie));
+        totalCalorieTextView.setText(String.format("%1.2f", suggestedCalories));
     }
 
     private void populateCalorieProgressBar() {
-        int percentage = (int) (0.0f / totalCalorie);
+        double todayCalories = todayNutrients.getCalories();
+        int percentage = (int) (todayCalories * 100 / suggestedCalories);
+        percentage = percentage < 100 ? percentage : 100;
 
         final int bgColor = getActivity().getResources().getColor(R.color.progressBarBgColor);
         final int startColor = getActivity().getResources().getColor(R.color.progressBarStartColor);
 
         final ArrayList<ArcProgressStackView.Model> models = new ArrayList<>();
-        models.add(new ArcProgressStackView.Model("Calorie", 25, bgColor, startColor));
+        models.add(new ArcProgressStackView.Model("Calorie", percentage, bgColor, startColor));
 
         calorieProgressBar.setModels(models);
+    }
+
+    private void populateNutrientIntakeWidgets() {
+        proteinIntakeTextView.setText(String.format("%1.2f", todayNutrients.getProtein()));
+        fatIntakeTextView.setText(String.format("%1.2f", todayNutrients.getTotalFats()));
+        carbIntakeTextView.setText(String.format("%1.2f", todayNutrients.getTotalCarbs()));
     }
 }
