@@ -3,19 +3,20 @@ package holmusk.com.holmuskchallenge.Activities.DailyActivity.Fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import holmusk.com.holmuskchallenge.Models.FoodNutrient;
+import holmusk.com.holmuskchallenge.Helpers.CalorieCalculator;
+import holmusk.com.holmuskchallenge.Models.Food;
+import holmusk.com.holmuskchallenge.Models.Nutrient;
 import holmusk.com.holmuskchallenge.R;
 import holmusk.com.holmuskchallenge.Resources.Fragments.FoodFragment;
 import holmusk.com.holmuskchallenge.Storage.Databases.DatabaseWrapper;
-import holmusk.com.holmuskchallenge.Storage.SharedPreferences.SettingsPreferences;
 
 /**
  * Created by thearith on 24/4/16.
@@ -23,9 +24,11 @@ import holmusk.com.holmuskchallenge.Storage.SharedPreferences.SettingsPreference
 
 public class FoodsFragment extends Fragment {
 
+    private static final String TAG     = FoodsFragment.class.getSimpleName();
+
     private DatabaseWrapper wrapper;
 
-    private ArrayList<FoodNutrient> foods;
+    private ArrayList<Food> foods;
 
     private TextView numFoodsTextView;
 
@@ -68,7 +71,8 @@ public class FoodsFragment extends Fragment {
     }
 
     private void initializeFoods() {
-        //TODO: get a list of foods from database
+        foods = wrapper.getFoods();
+        Log.d(TAG, "foods: " + foods.size());
     }
 
 
@@ -92,8 +96,9 @@ public class FoodsFragment extends Fragment {
 
     private void setUpFoodFragments() {
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        for(FoodNutrient food : foods) {
-            FoodFragment foodFragment = FoodFragment.newInstance(food);
+        for(Food food : foods) {
+            FoodFragment foodFragment = FoodFragment.newInstance(food,
+                    !FoodFragment.HAD_ADD_BTN_VAL);
             transaction.add(R.id.foodsContainer, foodFragment);
         }
 
@@ -109,6 +114,5 @@ public class FoodsFragment extends Fragment {
         String numFoods = String.format(numFoodFormat, foods.size());
         numFoodsTextView.setText(numFoods);
     }
-
 
 }
